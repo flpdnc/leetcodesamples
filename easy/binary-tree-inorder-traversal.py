@@ -37,7 +37,7 @@ def inorderTraversal(root):
 
 import unittest
 
-class TestSqrtx(unittest.TestCase):
+class TestInorderTraversal(unittest.TestCase):
 
     def test_first_sample(self):
         root = TreeNode(val=1, left=None, right=TreeNode(val=2, left=TreeNode(val=3, left=None, right=None), right=None))

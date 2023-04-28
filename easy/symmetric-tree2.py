@@ -23,7 +23,7 @@ def isMirror(root1, root2):
 
 import unittest
 
-class TestSqrtx(unittest.TestCase):
+class TestIsSymmetric(unittest.TestCase):
 
     def test_first_sample(self):
         root = TreeNode(

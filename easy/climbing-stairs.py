@@ -29,7 +29,7 @@ def climbStairs(n):
 
 import unittest
 
-class TestSqrtx(unittest.TestCase):
+class TestClimbStairs(unittest.TestCase):
 
     def test_first_sample(self):
         self.assertEqual(climbStairs(2), 2)
