@@ -46,7 +46,7 @@ def addTwoNumbers(l1, l2):
 
 import unittest
 
-class TestSqrtx(unittest.TestCase):
+class TestAddTwoNumbers(unittest.TestCase):
 
     def test_first_sample(self):
         l1 = ListNode(val=2, next=ListNode(val=4, next=ListNode(val=3, next=None))) 

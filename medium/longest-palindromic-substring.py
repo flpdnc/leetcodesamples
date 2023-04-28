@@ -57,7 +57,7 @@ def longestPalindrome(s):
 
 import unittest
 
-class TestSqrtx(unittest.TestCase):
+class TestLongestPalindrome(unittest.TestCase):
 
     def test_first_sample(self):
         self.assertEqual(longestPalindrome('babad'), 'bab')

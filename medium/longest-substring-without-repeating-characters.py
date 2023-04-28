@@ -19,7 +19,7 @@ def lengthOfLongestSubstring(s):
 
 import unittest
 
-class TestSqrtx(unittest.TestCase):
+class TestLengthOfLongestSubstring(unittest.TestCase):
 
     def test_first_sample(self):
         self.assertEqual(lengthOfLongestSubstring('abcabcbb'), 3)
