@@ -1,26 +1,38 @@
-def longestCommandPrefix(strs):
-    prefix = strs[0]
-    for i in strs[1:]:
-        idx = 0
-        while idx < len(prefix) and idx < len(i):
-            print(idx)
-            if i[idx] == prefix[idx]:
-                idx += 1 
-            else:
-                if idx == 0:
-                    print('""')
-                    return
+def longestCommonPrefix(strs):
+    def is_common_prefix(strs, length):
+        prefix = strs[0][:length]
+        return all(s.startswith(prefix) for s in strs)
 
-        prefix = i[:idx]
-        idx = 0
 
-    print('"%s"' % ''.join(prefix))
-    return
+    if not strs:
+        return ""
+
+    min_length = min(len(s) for s in strs)
+    low, high = 1, min_length
+    if is_common_prefix(strs, min_length):
+        return strs[0][:min_length]
+    while low <= high:
+        mid = (low + high) // 2
+        if is_common_prefix(strs, mid):
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return strs[0][:(low + high) // 2]
+
+import unittest
             
+class TestLongestCommonPrefix(unittest.TestCase):
 
-strs = ["ab", "a"]
+    def test_first_sample(self):
+        self.assertEqual(longestCommonPrefix(["ab", "a"]), "a")
 
-longestCommandPrefix(strs)
+    def test_second_sample(self):
+        self.assertEqual(longestCommonPrefix(["dog","racecar","car"]), "")
 
-strs2 = ["dog","racecar","car"]
-longestCommandPrefix(strs2)
+    def test_third_sample(self):
+        self.assertEqual(longestCommonPrefix(["flower","flow","flight"]), "fl")
+
+if __name__ == '__main__':
+    unittest.main()
+

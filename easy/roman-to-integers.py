@@ -38,11 +38,21 @@ def romanToInt(s):
         else:
             i += 1
 
-    print(s, total)
+    return total
 
+import unittest
 
+class TestRomanToInt(unittest.TestCase):
 
-romanToInt("III")
-romanToInt("LVIII")
-romanToInt("MCMXCIV")
+    def test_first_sample(self):
+        self.assertEqual(romanToInt("III"), 3)
+
+    def test_second_sample(self):
+        self.assertEqual(romanToInt("LVIII"), 58)
+
+    def test_third_sample(self):
+        self.assertEqual(romanToInt("MCMXCIV"), 1994)
+
+if __name__ == '__main__':
+    unittest.main()
 

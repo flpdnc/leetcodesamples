@@ -1,50 +1,39 @@
 def isValid(s):
-    paren_open = 0
-    open_order = []
+    open_order = list()
 
     for i in s:
-        print(i)
         if i in ['(','{','[']:
             open_order.append(i)
-            paren_open += 1
         elif i in [')', '}', ']']:
             if len(open_order) == 0:
                 return False
             match i:
                 case ')':
-                    if open_order[-1] != '(':
+                    if open_order.pop() != '(':
                         return False
-                    else:
-                        open_order = open_order[:-1]
                 case '}':
-                    if open_order[-1] != '{':
+                    if open_order.pop() != '{':
                         return False
-                    else:
-                        open_order = open_order[:-1]
                 case ']':
-                    if open_order[-1] != '[':
+                    if open_order.pop() != '[':
                         return False
-                    else:
-                        open_order = open_order[:-1]
     if open_order:
         return False
     else:
         return True
                     
+import unittest
 
+class TestIsValid(unittest.TestCase):
 
+    def test_first_sample(self):
+        self.assertEqual(isValid("()"), True)
 
+    def test_second_sample(self):
+        self.assertEqual(isValid("()[]{}"), True)
 
+    def test_third_sample(self):
+        self.assertEqual(isValid("(]"), False)
 
-
-
-
-
-
-s = "()"
-s2 = "()[]{}"
-s3 = "(]"
-print(isValid(s))
-print(isValid(s2))
-print(isValid(s3))
-
+if __name__ == '__main__':
+    unittest.main()
